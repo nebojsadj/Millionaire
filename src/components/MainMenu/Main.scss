@@ -1,0 +1,31 @@
+@import "variables";
+@import "mixins";
+@import "buttons";
+@import "options";
+
+#main {
+  flex: 75%;
+  border: 2px solid $borderColor;
+  @include flex(space-around, center, column);
+
+  img {
+    width: 40%;
+  }
+
+  #btnHolder {
+    width: 80%;
+    @include flex(space-between, none, row);
+  }
+}
+
+#questions {
+  @include widthHeightBorder(80%, 90px, 4px solid $borderColor);
+  background-color: $fieldsColor;
+  border-radius: 3em;
+  display: flex;
+
+  h2 {
+    text-align: center;
+    margin: auto;
+  }
+}

@@ -1,0 +1,18 @@
+@import "mixins";
+
+.profit {
+  @include widthHeightBorder(80%, 80%, 1px solid $fieldsColor);
+  background-color: $fieldsColor;
+  font-size: 1.7em;
+  margin: auto;
+  @include flex(space-evenly, none, column);
+  padding: 1em 1em 0 1em;
+}
+
+.points {
+  text-align: center;
+  font-size: 1.2em;
+}
+.money {
+  color: $gold;
+}

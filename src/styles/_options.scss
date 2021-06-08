@@ -1,0 +1,31 @@
+#options {
+  width: 80%;
+  @include flex(none, none, column);
+  margin-bottom: 40px;
+
+  .optionHolder {
+    width: 100%;
+    @include flex(space-between, none, row);
+  }
+  .option {
+    @include widthHeightBorder(47%, 70px, 4px solid $borderColor);
+    border-radius: 2em;
+    background-color: $fieldsColor;
+    margin-top: 50px;
+    cursor: pointer;
+    @include flex(center, center, none);
+    font-size: 1.6em;
+
+    span {
+      color: $gold;
+    }
+
+    &:hover {
+      background: $hoverBackground;
+      color: $hoverTxt;
+      span {
+        color: $hoverTxt;
+      }
+    }
+  }
+}

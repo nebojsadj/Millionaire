@@ -1,0 +1,24 @@
+.btn {
+  font-size: 1.2em;
+  padding: 0.3em 0.6em;
+  border: 3px solid $borderColor;
+  background-color: $fieldsColor;
+  color: $textColor;
+  border-radius: 2em;
+  cursor: pointer;
+  &:hover {
+    color: $hoverTxt;
+  }
+}
+.btn-pitanje {
+  @extend .btn;
+  &:hover {
+    background-color: $pitanjeHover;
+  }
+}
+.btn-odustani {
+  @extend .btn;
+  &:hover {
+    background-color: $odustaniHover;
+  }
+}
