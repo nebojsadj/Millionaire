@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import MainMenu from "./components/MainMenu/MainMenu";
 import SecondaryMenu from "./components/SecondaryMenu/SecondaryMenu";
 
 function App() {
+  const [counter, setCounter] = useState(0);
   return (
     <div className="App">
-      <MainMenu />
+      <MainMenu counter={counter} setCounter={setCounter} />
       <SecondaryMenu />
     </div>
   );

@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Main.scss";
 import poster from "../../images/poster.jpg";
 import { questions } from "../Questions";
 
-function MainMenu() {
-  console.log(questions[0]);
-  const { question, options, answer, points } = questions[0];
+function MainMenu({ counter, setCounter }) {
+  const [show, setShow] = useState(true);
+  const { question, options, answer, points } = questions[counter];
+
   return (
     <div id="main">
       <h1>Millionaire quiz</h1>
@@ -42,6 +43,9 @@ function MainMenu() {
             </p>
           </div>
         </div>
+      </div>
+      <div className={show ? "startQuiz" : "hide"}>
+        <button onClick={() => setShow(!show)}>Start Quiz</button>
       </div>
     </div>
   );
