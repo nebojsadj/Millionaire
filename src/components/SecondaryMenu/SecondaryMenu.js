@@ -4,7 +4,25 @@ import half from "../../images/img1.png";
 import friend from "../../images/img2.png";
 import audience from "../../images/img3.png";
 
-function SecondaryMenu() {
+function SecondaryMenu({ points }) {
+  const money = [
+    { number: "15 ⋄", money: "3000000" },
+    { number: "14 ⋄", money: "1500000" },
+    { number: "13 ⋄", money: "750000" },
+    { number: "12 ⋄", money: "375000" },
+    { number: "11 ⋄", money: "192000" },
+    { number: "10 ⋄", money: "96000" },
+    { number: "9 ⋄", money: "48000" },
+    { number: "8 ⋄", money: "24000" },
+    { number: "7 ⋄", money: "12000" },
+    { number: "6 ⋄", money: "6000" },
+    { number: "5 ⋄", money: "3000" },
+    { number: "4 ⋄", money: "1500" },
+    { number: "3 ⋄", money: "900" },
+    { number: "2 ⋄", money: "600" },
+    { number: "1 ⋄", money: "300" },
+  ];
+
   return (
     <div id="secondary">
       <div className="helpHolder">
@@ -19,23 +37,11 @@ function SecondaryMenu() {
         </div>
       </div>
       <div className="profit">
-        <div className="money">15 ⋄ 3000000</div>
-        <div className="money">14 ⋄ 1500000</div>
-        <div className="money">13 ⋄ 750000</div>
-        <div className="money">12 ⋄ 375000</div>
-        <div className="money">11 ⋄ 192000</div>
-        <div className="money">10 ⋄ 96000</div>
-        <div className="money">9 ⋄ 48000</div>
-        <div className="money">8 ⋄ 24000</div>
-        <div className="money">7 ⋄ 12000</div>
-        <div className="money">6 ⋄ 6000</div>
-        <div className="money">5 ⋄ 3000</div>
-        <div className="money">4 ⋄ 1500</div>
-        <div className="money">3 ⋄ 900</div>
-        <div className="money">2 ⋄ 600</div>
-        <div className="money">1 ⋄ 300</div>
+        {money.map((el) => (
+          <div className="money">{`${el.number} ${el.money}`}</div>
+        ))}
         <hr />
-        <div className="points">100</div>
+        <div className="points">{points}</div>
       </div>
     </div>
   );
