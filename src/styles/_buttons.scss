@@ -10,15 +10,25 @@
     color: $hoverTxt;
   }
 }
-.btn-pitanje {
+.btn-question {
   @extend .btn;
   &:hover {
     background-color: $pitanjeHover;
   }
 }
-.btn-odustani {
+.btn-giveUp {
   @extend .btn;
   &:hover {
     background-color: $odustaniHover;
+  }
+}
+
+.disabled {
+  @extend .btn-question;
+  opacity: 0.3;
+  &:hover {
+    background-color: $backgroundColor;
+    color: $textColor;
+    cursor: not-allowed;
   }
 }
