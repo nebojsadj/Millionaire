@@ -1,6 +1,6 @@
 import React from "react";
 import "./Secondary.scss";
-import { money } from "../Money";
+import { money } from "../Data/Money";
 import half from "../../images/img1.png";
 import friend from "../../images/img2.png";
 import audience from "../../images/img3.png";

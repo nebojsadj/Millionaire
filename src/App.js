@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import MainMenu from "./components/MainMenu/MainMenu";
 import SecondaryMenu from "./components/SecondaryMenu/SecondaryMenu";
-import { questions } from "./components/Questions";
+import { questions } from "./components/Data/Questions";
 
 function App() {
   const [counter, setCounter] = useState(0);
