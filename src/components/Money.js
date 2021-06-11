@@ -1,0 +1,17 @@
+export const money = [
+  { id: 15, number: "15 ⋄", money: "3000000" },
+  { id: 14, number: "14 ⋄", money: "1500000" },
+  { id: 13, number: "13 ⋄", money: "750000" },
+  { id: 12, number: "12 ⋄", money: "375000" },
+  { id: 11, number: "11 ⋄", money: "192000" },
+  { id: 10, number: "10 ⋄", money: "96000" },
+  { id: 9, number: "9 ⋄", money: "48000" },
+  { id: 8, number: "8 ⋄", money: "24000" },
+  { id: 7, number: "7 ⋄", money: "12000" },
+  { id: 6, number: "6 ⋄", money: "6000" },
+  { id: 5, number: "5 ⋄", money: "3000" },
+  { id: 4, number: "4 ⋄", money: "1500" },
+  { id: 3, number: "3 ⋄", money: "900" },
+  { id: 2, number: "2 ⋄", money: "600" },
+  { id: 1, number: "1 ⋄", money: "300" },
+];
