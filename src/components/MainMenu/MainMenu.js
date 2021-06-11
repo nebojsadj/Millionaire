@@ -1,12 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Main.scss";
 import poster from "../../images/poster.jpg";
-import { questions } from "../Questions";
 
-function MainMenu({ counter, setCounter }) {
-  const [show, setShow] = useState(true);
-  const { question, options, answer, points } = questions[counter];
-
+function MainMenu({
+  counter,
+  question,
+  disable,
+  nextQuestion,
+  shuffleOptions,
+  selected,
+  currentSelected,
+  handleSelect,
+}) {
+  const markers = ["A", "B", "C", "D"];
   return (
     <div id="main">
       <h1>Millionaire quiz</h1>
@@ -15,37 +21,29 @@ function MainMenu({ counter, setCounter }) {
         <h2>{question}</h2>
       </div>
       <div id="btnHolder">
-        <button className="btn-pitanje">Postavi pitanje</button>
-        <button className="btn-odustani">Odustani</button>
+        <button
+          className={(disable && "disabled") || "btn-question"}
+          onClick={nextQuestion}
+          disabled={disable}
+        >
+          Next question
+        </button>
+        <button className="btn-giveUp">Quit</button>
       </div>
       <div id="options">
-        <div className="optionHolder">
-          <div className="option">
+        {shuffleOptions.map((option, i) => (
+          <button
+            className={`option ${selected && currentSelected(option)}`}
+            onClick={() => handleSelect(option)}
+            key={i}
+            disabled={selected}
+          >
             <p>
-              <span>* A :</span> {options[0]}
+              <span>* {markers[i]} : </span>
+              {option}
             </p>
-          </div>
-          <div className="option">
-            <p>
-              <span>* B :</span> {options[1]}
-            </p>
-          </div>
-        </div>
-        <div className="optionHolder">
-          <div className="option">
-            <p>
-              <span>* C :</span> {options[2]}
-            </p>
-          </div>
-          <div className="option">
-            <p>
-              <span>* D :</span> {options[3]}
-            </p>
-          </div>
-        </div>
-      </div>
-      <div className={show ? "startQuiz" : "hide"}>
-        <button onClick={() => setShow(!show)}>Start Quiz</button>
+          </button>
+        ))}
       </div>
     </div>
   );
