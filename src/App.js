@@ -11,17 +11,19 @@ function App() {
   const { question, options, correct, points } = questions[counter];
   const [shuffleOptions, setShuffleOptions] = useState(options);
   const [addPoints, setAddPoints] = useState(0);
+  const [index, setIndex] = useState(15);
 
   const nextQuestion = () => {
     setCounter(counter + 1);
     setSelected("");
   };
 
-  const handleSelect = (option) => {
+  const handleSelect = (option, i) => {
     setSelected(option);
     if (option === correct) {
       setDisable(false);
       setAddPoints(addPoints + points);
+      setIndex(index - 1);
     } else {
       setDisable(true);
     }
@@ -49,8 +51,6 @@ function App() {
       </div>
       <MainMenu
         question={question}
-        counter={counter}
-        setCounter={setCounter}
         disable={disable}
         selected={selected}
         shuffleOptions={shuffleOptions}
@@ -58,7 +58,7 @@ function App() {
         currentSelected={currentSelected}
         nextQuestion={nextQuestion}
       />
-      <SecondaryMenu points={addPoints} />
+      <SecondaryMenu points={addPoints} index={index} />
     </div>
   );
 }

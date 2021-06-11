@@ -3,7 +3,6 @@ import "./Main.scss";
 import poster from "../../images/poster.jpg";
 
 function MainMenu({
-  counter,
   question,
   disable,
   nextQuestion,
