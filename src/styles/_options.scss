@@ -29,10 +29,10 @@
 
   .green {
     @extend .option;
-    background-color: $pitanjeHover;
+    background-color: $green;
   }
   .red {
     @extend .option;
-    background-color: $odustaniHover;
+    background-color: $red;
   }
 }

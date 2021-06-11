@@ -13,13 +13,13 @@
 .btn-question {
   @extend .btn;
   &:hover {
-    background-color: $pitanjeHover;
+    background-color: $green;
   }
 }
 .btn-giveUp {
   @extend .btn;
   &:hover {
-    background-color: $odustaniHover;
+    background-color: $red;
   }
 }
 
