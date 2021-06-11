@@ -1,20 +1,18 @@
 #options {
   width: 80%;
-  @include flex(none, none, column);
+  @include flex(space-between, none, row);
+  flex-wrap: wrap;
   margin-bottom: 40px;
 
-  .optionHolder {
-    width: 100%;
-    @include flex(space-between, none, row);
-  }
   .option {
     @include widthHeightBorder(47%, 70px, 4px solid $borderColor);
     border-radius: 2em;
     background-color: $fieldsColor;
-    margin-top: 50px;
+    margin-top: 1.5em;
     cursor: pointer;
-    @include flex(center, center, none);
+    @include flex(center, center, row);
     font-size: 1.6em;
+    color: $textColor;
 
     span {
       color: $gold;
@@ -27,5 +25,14 @@
         color: $hoverTxt;
       }
     }
+  }
+
+  .green {
+    @extend .option;
+    background-color: $pitanjeHover;
+  }
+  .red {
+    @extend .option;
+    background-color: $odustaniHover;
   }
 }
