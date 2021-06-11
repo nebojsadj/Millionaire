@@ -13,7 +13,7 @@
     @include flex(space-around, none, row);
 
     .help {
-      width: 20%;
+      width: 23%;
 
       img {
         @include widthHeightBorder(100%, none, 4px solid transparent);
@@ -25,5 +25,19 @@
         }
       }
     }
+  }
+
+  .money {
+    padding-left: 20px;
+  }
+  .points {
+    color: $gold;
+  }
+  .guaranteed {
+    color: $textColor;
+  }
+  .markMoney {
+    background-color: $gold;
+    color: $hoverTxt;
   }
 }
