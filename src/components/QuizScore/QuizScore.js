@@ -1,11 +1,11 @@
 import React from "react";
-import "./Secondary.scss";
+import "./QuizScore.scss";
 import { money } from "../Data/Money";
 import half from "../../images/img1.png";
 import friend from "../../images/img2.png";
 import audience from "../../images/img3.png";
 
-function SecondaryMenu({ points, index }) {
+function QuizScore({ points, index }) {
   const mark = (el) => {
     if (index < 15) {
       return money[index].id === el;
@@ -47,4 +47,4 @@ function SecondaryMenu({ points, index }) {
   );
 }
 
-export default SecondaryMenu;
+export default QuizScore;

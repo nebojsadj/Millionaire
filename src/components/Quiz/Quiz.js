@@ -1,8 +1,8 @@
 import React from "react";
-import "./Main.scss";
+import "./Quiz.scss";
 import poster from "../../images/poster.jpg";
 
-function MainMenu({
+function Quiz({
   question,
   disable,
   nextQuestion,
@@ -10,6 +10,7 @@ function MainMenu({
   selected,
   currentSelected,
   handleSelect,
+  quit,
 }) {
   const markers = ["A", "B", "C", "D"];
   return (
@@ -27,7 +28,9 @@ function MainMenu({
         >
           Next question
         </button>
-        <button className="btn-giveUp">Quit</button>
+        <button className="btn-giveUp" onClick={quit}>
+          Quit
+        </button>
       </div>
       <div id="options">
         {shuffleOptions.map((option, i) => (
@@ -48,4 +51,4 @@ function MainMenu({
   );
 }
 
-export default MainMenu;
+export default Quiz;

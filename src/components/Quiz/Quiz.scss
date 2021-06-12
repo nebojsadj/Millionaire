@@ -29,26 +29,3 @@
     margin: auto;
   }
 }
-
-.startQuiz {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  @include widthHeightBorder(100%, 100%, none);
-  background-color: $backgroundColor;
-  @include flex(center, center, row);
-  button {
-    @extend .btn;
-    font-size: 2em;
-    &:hover {
-      background-color: $green;
-    }
-  }
-}
-
-.hide {
-  @extend .startQuiz;
-  top: -100%;
-  transition: all 1s ease-in-out;
-}
