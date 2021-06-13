@@ -16,6 +16,7 @@ function App() {
   const [addPoints, setAddPoints] = useState(0);
   const [index, setIndex] = useState(15);
   const [result, setResult] = useState(0);
+  const [half, setHalf] = useState(false);
 
   const nextQuestion = () => {
     setCounter(counter + 1);
@@ -45,6 +46,28 @@ function App() {
     } else if (select === correct) {
       return "green";
     }
+  };
+
+  const helpHalf = () => {
+    setHalf(true);
+    if (shuffleOptions[0] !== correct && shuffleOptions[1] !== correct) {
+      shuffleOptions.splice(0, 2, "", "");
+    } else if (shuffleOptions[0] !== correct && shuffleOptions[2] !== correct) {
+      shuffleOptions.splice(0, 1, "");
+      shuffleOptions.splice(2, 1, "");
+    } else if (shuffleOptions[0] !== correct && shuffleOptions[3] !== correct) {
+      shuffleOptions.splice(0, 1, "");
+      shuffleOptions.splice(3, 1, "");
+    } else if (shuffleOptions[1] !== correct && shuffleOptions[2] !== correct) {
+      shuffleOptions.splice(1, 2, "", "");
+    } else if (shuffleOptions[1] !== correct && shuffleOptions[3] !== correct) {
+      shuffleOptions.splice(1, 1, "");
+      shuffleOptions.splice(3, 1, "");
+    } else if (shuffleOptions[2] !== correct && shuffleOptions[3] !== correct) {
+      shuffleOptions.splice(2, 2, "", "");
+    }
+
+    return setShuffleOptions([...shuffleOptions]);
   };
 
   const tryAgain = () => {
@@ -100,7 +123,12 @@ function App() {
         nextQuestion={nextQuestion}
         quit={quit}
       />
-      <QuizScore points={addPoints} index={index} />
+      <QuizScore
+        points={addPoints}
+        index={index}
+        helpHalf={helpHalf}
+        half={half}
+      />
     </div>
   );
 }

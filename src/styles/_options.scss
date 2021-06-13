@@ -19,11 +19,7 @@
     }
 
     &:hover {
-      background: $hoverBackground;
-      color: $hoverTxt;
-      span {
-        color: $hoverTxt;
-      }
+      border: 4px solid $hoverBackground;
     }
   }
 
