@@ -41,7 +41,7 @@ function Quiz({
             disabled={selected}
           >
             <p>
-              <span>* {markers[i]} : </span>
+              <span>{option && `* ${markers[i]} : `}</span>
               {option}
             </p>
           </button>
