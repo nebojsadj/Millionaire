@@ -1,0 +1,23 @@
+@import "variables";
+@import "mixins";
+
+.helpHolder {
+  width: 100%;
+  margin-top: 10%;
+  @include flex(space-around, none, row);
+
+  button {
+    width: 23%;
+    background-color: transparent;
+    border: none;
+    img {
+      @include widthHeightBorder(100%, none, 4px solid transparent);
+      border-radius: 50%;
+      cursor: pointer;
+
+      &:hover {
+        border: 4px solid $hoverBorder;
+      }
+    }
+  }
+}
