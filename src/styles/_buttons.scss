@@ -6,20 +6,17 @@
   color: $textColor;
   border-radius: 2em;
   cursor: pointer;
-  &:hover {
-    color: $hoverTxt;
-  }
 }
 .btn-question {
   @extend .btn;
   &:hover {
-    background-color: $green;
+    background-color: $success;
   }
 }
 .btn-giveUp {
   @extend .btn;
   &:hover {
-    background-color: $red;
+    background-color: $danger;
   }
 }
 

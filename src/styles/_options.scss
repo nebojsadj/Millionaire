@@ -19,16 +19,16 @@
     }
 
     &:hover {
-      border: 4px solid $hoverBackground;
+      border: 4px solid $hoverBorder;
     }
   }
 
   .green {
     @extend .option;
-    background-color: $green;
+    background-color: $success;
   }
   .red {
     @extend .option;
-    background-color: $red;
+    background-color: $danger;
   }
 }
