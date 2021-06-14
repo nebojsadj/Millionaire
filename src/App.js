@@ -106,6 +106,7 @@ function App() {
     copyOptions = [].concat(options);
     setShuffleOptions([...copyOptions]);
     setHalf(false);
+    setFriend({ ...friend, clicked: false, display: false });
   };
 
   const incorrectAnswer = () => {
