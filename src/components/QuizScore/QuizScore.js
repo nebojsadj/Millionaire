@@ -1,12 +1,9 @@
 import React from "react";
 import "./QuizScore.scss";
 import { money } from "../Data/Money";
-import halfImg1 from "../../images/img1.png";
-import halfImg2 from "../../images/img1-2.png";
-import friend from "../../images/img2.png";
-import audience from "../../images/img3.png";
+import Help from "../Help/Help";
 
-function QuizScore({ points, index, helpHalf, half }) {
+function QuizScore({ points, index, halfHelp, half, friend, friendHelp }) {
   const mark = (el) => {
     if (index < 15) {
       return money[index].id === el;
@@ -20,18 +17,13 @@ function QuizScore({ points, index, helpHalf, half }) {
   };
 
   return (
-    <div id="secondary">
-      <div className="helpHolder">
-        <button onClick={helpHalf} disabled={half}>
-          <img src={(half && halfImg2) || halfImg1} alt={halfImg1} />
-        </button>
-        <button>
-          <img src={friend} alt={friend} />
-        </button>
-        <button>
-          <img src={audience} alt={audience} />
-        </button>
-      </div>
+    <div id="quizScore">
+      <Help
+        halfHelp={halfHelp}
+        half={half}
+        friend={friend}
+        friendHelp={friendHelp}
+      />
       <div className="profit">
         {money.map((el) => (
           <div

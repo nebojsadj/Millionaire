@@ -1,38 +1,25 @@
 @import "variables";
-@import "score";
 @import "mixins";
 
-#secondary {
+#quizScore {
   flex: 25%;
   border: 2px solid $borderColor;
   @include flex(space-evenly, none, column);
-
-  .helpHolder {
-    width: 100%;
-    margin-top: 10%;
-    @include flex(space-around, none, row);
-
-    button {
-      width: 23%;
-      background-color: transparent;
-      border: none;
-
-      img {
-        @include widthHeightBorder(100%, none, 4px solid transparent);
-        border-radius: 50%;
-        cursor: pointer;
-
-        &:hover {
-          border: 4px solid $hoverBackground;
-        }
-      }
-    }
+  .profit {
+    @include widthHeightBorder(80%, 80%, 1px solid $fieldsColor);
+    background-color: $fieldsColor;
+    font-size: 1.7em;
+    margin: auto;
+    @include flex(space-evenly, none, column);
+    padding: 1em 1em 0 1em;
   }
 
+  .points {
+    text-align: center;
+    font-size: 1.2em;
+  }
   .money {
     padding-left: 20px;
-  }
-  .points {
     color: $gold;
   }
   .guaranteed {
@@ -40,6 +27,6 @@
   }
   .markMoney {
     background-color: $gold;
-    color: $hoverTxt;
+    color: black;
   }
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import "./StartEnd.scss";
+import friendImg from "../../images/img2.png";
 
 function StartEnd({
   startShow,
@@ -8,7 +9,10 @@ function StartEnd({
   addPoints,
   tryAgain,
   result,
+  friend,
+  setFriend,
 }) {
+  const { display, answer } = friend;
   return (
     <>
       <div className={startShow ? "startQuiz" : "hide"}>
@@ -20,6 +24,15 @@ function StartEnd({
         <h1>{`${addPoints} points`}</h1>
         <button onClick={tryAgain}>Try Again</button>
       </div>
+      {display && (
+        <div id="friendHelp">
+          <img src={friendImg} alt={friendImg} />
+          <h2>{answer}</h2>
+          <button onClick={() => setFriend({ ...friend, display: false })}>
+            Close
+          </button>
+        </div>
+      )}
     </>
   );
 }

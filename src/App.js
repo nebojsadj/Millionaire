@@ -17,6 +17,11 @@ function App() {
   const [index, setIndex] = useState(15);
   const [result, setResult] = useState(0);
   const [half, setHalf] = useState(false);
+  const [friend, setFriend] = useState({
+    clicked: false,
+    answer: "",
+    display: false,
+  });
 
   const nextQuestion = () => {
     setCounter(counter + 1);
@@ -48,7 +53,7 @@ function App() {
     }
   };
 
-  const helpHalf = () => {
+  const halfHelp = () => {
     setHalf(true);
     if (shuffleOptions[0] !== correct && shuffleOptions[1] !== correct) {
       shuffleOptions.splice(0, 2, "", "");
@@ -68,6 +73,26 @@ function App() {
     }
 
     return setShuffleOptions([...shuffleOptions]);
+  };
+
+  const friendHelp = () => {
+    let friendAnswers = [
+      "Nisam sigurna",
+      "Nisam sigurna",
+      "Nisam siguran",
+      'Mislim da je "A"',
+      'Mislim da je "B"',
+      'Mislim da je "C"',
+      'Mislim da je "D"',
+    ];
+    let r = Math.floor(Math.random() * friendAnswers.length);
+
+    setFriend({
+      ...friend,
+      clicked: true,
+      display: true,
+      answer: friendAnswers[r],
+    });
   };
 
   const tryAgain = () => {
@@ -112,6 +137,8 @@ function App() {
         addPoints={addPoints}
         tryAgain={tryAgain}
         result={result}
+        friend={friend}
+        setFriend={setFriend}
       />
       <Quiz
         question={question}
@@ -126,8 +153,10 @@ function App() {
       <QuizScore
         points={addPoints}
         index={index}
-        helpHalf={helpHalf}
+        halfHelp={halfHelp}
         half={half}
+        friend={friend}
+        friendHelp={friendHelp}
       />
     </div>
   );
