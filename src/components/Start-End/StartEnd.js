@@ -13,10 +13,11 @@ function StartEnd({
   setFriend,
 }) {
   const { display, answer } = friend;
+
   return (
     <>
       <div className={startShow ? "startQuiz" : "hide"}>
-        <button onClick={() => setStartShow(!startShow)}>Start Quiz</button>
+        <button onClick={() => setStartShow(false)}>Start Quiz</button>
       </div>
       <div className={endShow ? "show" : "endQuiz"}>
         <h1>Your gain is:</h1>

@@ -12,7 +12,8 @@ function App() {
   const [disable, setDisable] = useState(true);
   const [selected, setSelected] = useState("");
   const { question, options, correct, points } = questions[counter];
-  const [shuffleOptions, setShuffleOptions] = useState(options);
+  let copyOptions = [].concat(options);
+  const [shuffleOptions, setShuffleOptions] = useState(copyOptions);
   const [addPoints, setAddPoints] = useState(0);
   const [index, setIndex] = useState(15);
   const [result, setResult] = useState(0);
@@ -38,8 +39,8 @@ function App() {
       setDisable(true);
       setTimeout(() => {
         setEndShow(true);
-      }, 3000);
-      error();
+      }, 2000);
+      incorrectAnswer();
     }
   };
 
@@ -102,9 +103,12 @@ function App() {
     setSelected("");
     setIndex(15);
     setAddPoints(0);
+    copyOptions = [].concat(options);
+    setShuffleOptions([...copyOptions]);
+    setHalf(false);
   };
 
-  const error = () => {
+  const incorrectAnswer = () => {
     if (index > 10) {
       setResult(0);
     } else if (index === 0) {
@@ -124,7 +128,7 @@ function App() {
   };
 
   useEffect(() => {
-    setShuffleOptions(options.sort(() => Math.random() - 0.5));
+    setShuffleOptions(copyOptions.sort(() => Math.random() - 0.5));
     setDisable(true);
   }, [counter]);
 
