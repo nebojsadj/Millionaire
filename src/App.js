@@ -23,6 +23,11 @@ function App() {
     answer: "",
     display: false,
   });
+  const [audience, setAudience] = useState({
+    clicked: false,
+    display: false,
+    columns: [],
+  });
 
   const nextQuestion = () => {
     setCounter(counter + 1);
@@ -96,6 +101,29 @@ function App() {
     });
   };
 
+  const audienceHelp = () => {
+    const otherColumns = [
+      <div className="column1"></div>,
+      <div className="column2"></div>,
+      <div className="column3"></div>,
+    ];
+
+    const randomColumns = otherColumns.sort(() => Math.random() - 0.5);
+    const correctColumn = <div className="column"></div>;
+
+    for (let i = 0; i < 4; i++) {
+      if (shuffleOptions[i] === correct) {
+        randomColumns.splice(i, 0, correctColumn);
+      }
+    }
+    setAudience({
+      ...audience,
+      clicked: true,
+      display: true,
+      columns: randomColumns,
+    });
+  };
+
   const tryAgain = () => {
     setEndShow(false);
     setStartShow(true);
@@ -144,6 +172,8 @@ function App() {
         result={result}
         friend={friend}
         setFriend={setFriend}
+        audience={audience}
+        setAudience={setAudience}
       />
       <Quiz
         question={question}
@@ -162,6 +192,8 @@ function App() {
         half={half}
         friend={friend}
         friendHelp={friendHelp}
+        audience={audience}
+        audienceHelp={audienceHelp}
       />
     </div>
   );

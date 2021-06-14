@@ -66,3 +66,40 @@
     font-size: 1em;
   }
 }
+
+#audienceHelp {
+  @extend #friendHelp;
+  top: 7%;
+  height: 360px;
+  .colHolder {
+    @include widthHeightBorder(100%, 200px, none);
+    @include flex(space-evenly, center, row);
+    .col {
+      @include widthHeightBorder(40px, 100%, 2px solid $borderColor);
+    }
+  }
+  .markHolder {
+    @include widthHeightBorder(67%, 40px, none);
+    @include flex(space-between, center, row);
+  }
+  .column {
+    @include widthHeightBorder(35px, 50%, none);
+    background-color: $backgroundColor;
+    margin-top: 98px;
+  }
+  .column1 {
+    @include widthHeightBorder(35px, 25%, none);
+    background-color: $backgroundColor;
+    margin-top: 147px;
+  }
+  .column2 {
+    @include widthHeightBorder(35px, 15%, none);
+    background-color: $backgroundColor;
+    margin-top: 167px;
+  }
+  .column3 {
+    @include widthHeightBorder(35px, 10%, none);
+    background-color: $backgroundColor;
+    margin-top: 177px;
+  }
+}

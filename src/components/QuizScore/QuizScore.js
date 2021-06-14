@@ -3,7 +3,16 @@ import "./QuizScore.scss";
 import { money } from "../Data/Money";
 import Help from "../Help/Help";
 
-function QuizScore({ points, index, halfHelp, half, friend, friendHelp }) {
+function QuizScore({
+  points,
+  index,
+  halfHelp,
+  half,
+  friend,
+  friendHelp,
+  audience,
+  audienceHelp,
+}) {
   const mark = (el) => {
     if (index < 15) {
       return money[index].id === el;
@@ -23,6 +32,8 @@ function QuizScore({ points, index, halfHelp, half, friend, friendHelp }) {
         half={half}
         friend={friend}
         friendHelp={friendHelp}
+        audience={audience}
+        audienceHelp={audienceHelp}
       />
       <div className="profit">
         {money.map((el) => (
