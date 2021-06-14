@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./StartEnd.scss";
 import friendImg from "../../images/img2.png";
+import quizSound from "../../audioFiles/play.mp3";
 
 function StartEnd({
   startShow,
@@ -15,10 +16,15 @@ function StartEnd({
   setAudience,
 }) {
   const markers = ["A", "B", "C", "D"];
+  const startQuiz = () => {
+    setStartShow(false);
+    quizAudio.current.play();
+  };
+  const quizAudio = useRef();
   return (
     <>
       <div className={startShow ? "startQuiz" : "hide"}>
-        <button onClick={() => setStartShow(false)}>Start Quiz</button>
+        <button onClick={startQuiz}>Start Quiz</button>
       </div>
       <div className={endShow ? "show" : "endQuiz"}>
         <h1>Your gain is:</h1>
@@ -54,6 +60,7 @@ function StartEnd({
           </button>
         </div>
       )}
+      <audio ref={quizAudio} src={quizSound}></audio>
     </>
   );
 }

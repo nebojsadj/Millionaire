@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./Quiz.scss";
 import poster from "../../images/poster.jpg";
+import correctSound from "../../audioFiles/win.mp3";
+import incorrectSound from "../../audioFiles/lose.mp3";
+import questionSound from "../../audioFiles/question.mp3";
+import quitSound from "../../audioFiles/finalAnswer.mp3";
 
 function Quiz({
   question,
@@ -13,41 +17,51 @@ function Quiz({
   quit,
 }) {
   const markers = ["A", "B", "C", "D"];
+  const correctAudio = useRef();
+  const incorrectAudio = useRef();
+  const questionAudio = useRef();
+  const quitAudio = useRef();
   return (
-    <div id="main">
-      <h1>Millionaire quiz</h1>
-      <img src={poster} alt={poster} />
-      <div id="questions">
-        <h2>{question}</h2>
-      </div>
-      <div id="btnHolder">
-        <button
-          className={(disable && "disabled") || "btn-question"}
-          onClick={nextQuestion}
-          disabled={disable}
-        >
-          Next question
-        </button>
-        <button className="btn-giveUp" onClick={quit}>
-          Quit
-        </button>
-      </div>
-      <div id="options">
-        {shuffleOptions.map((option, i) => (
+    <>
+      <div id="main">
+        <h1>Millionaire quiz</h1>
+        <img src={poster} alt={poster} />
+        <div id="questions">
+          <h2>{question}</h2>
+        </div>
+        <div id="btnHolder">
           <button
-            className={`option ${selected && currentSelected(option)}`}
-            onClick={() => handleSelect(option)}
-            key={i}
-            disabled={selected}
+            className={(disable && "disabled") || "btn-question"}
+            onClick={() => nextQuestion(questionAudio)}
+            disabled={disable}
           >
-            <p>
-              <span>{option && `* ${markers[i]} : `}</span>
-              {option}
-            </p>
+            Next question
           </button>
-        ))}
+          <button className="btn-giveUp" onClick={() => quit(quitAudio)}>
+            Quit
+          </button>
+        </div>
+        <div id="options">
+          {shuffleOptions.map((option, i) => (
+            <button
+              className={`option ${selected && currentSelected(option)}`}
+              onClick={() => handleSelect(option, correctAudio, incorrectAudio)}
+              key={i}
+              disabled={selected}
+            >
+              <p>
+                <span>{option && `* ${markers[i]} : `}</span>
+                {option}
+              </p>
+            </button>
+          ))}
+        </div>
       </div>
-    </div>
+      <audio ref={correctAudio} src={correctSound}></audio>
+      <audio ref={incorrectAudio} src={incorrectSound}></audio>
+      <audio ref={questionAudio} src={questionSound}></audio>
+      <audio ref={quitAudio} src={quitSound}></audio>
+    </>
   );
 }
 

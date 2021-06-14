@@ -29,23 +29,28 @@ function App() {
     columns: [],
   });
 
-  const nextQuestion = () => {
+  const nextQuestion = (questionAudio) => {
+    questionAudio.current.load();
+    questionAudio.current.play();
     setCounter(counter + 1);
     setSelected("");
   };
 
-  const handleSelect = (option, i) => {
+  const handleSelect = (option, correctAudio, incorrectAudio) => {
     setSelected(option);
     if (option === correct) {
       setDisable(false);
       setAddPoints(addPoints + points);
       setIndex(index - 1);
+      correctAudio.current.load();
+      correctAudio.current.play();
     } else {
       setDisable(true);
       setTimeout(() => {
         setEndShow(true);
       }, 2000);
       incorrectAnswer();
+      incorrectAudio.current.play();
     }
   };
 
@@ -59,7 +64,8 @@ function App() {
     }
   };
 
-  const halfHelp = () => {
+  const halfHelp = (audio) => {
+    audio.current.play();
     setHalf(true);
     if (shuffleOptions[0] !== correct && shuffleOptions[1] !== correct) {
       shuffleOptions.splice(0, 2, "", "");
@@ -81,7 +87,8 @@ function App() {
     return setShuffleOptions([...shuffleOptions]);
   };
 
-  const friendHelp = () => {
+  const friendHelp = (afriendAudio) => {
+    afriendAudio.current.play();
     let friendAnswers = [
       "Nisam sigurna",
       "Nisam sigurna",
@@ -101,7 +108,8 @@ function App() {
     });
   };
 
-  const audienceHelp = () => {
+  const audienceHelp = (audienceAudio) => {
+    audienceAudio.current.play();
     const otherColumns = [
       <div className="column1"></div>,
       <div className="column2"></div>,
@@ -135,6 +143,7 @@ function App() {
     setShuffleOptions([...copyOptions]);
     setHalf(false);
     setFriend({ ...friend, clicked: false, display: false });
+    setAudience({ ...audience, clicked: false, display: false });
   };
 
   const incorrectAnswer = () => {
@@ -151,7 +160,8 @@ function App() {
     }
   };
 
-  const quit = () => {
+  const quit = (quitAudio) => {
+    quitAudio.current.play();
     setEndShow(true);
     index < 15 ? setResult(money[index].money) : setResult(0);
   };
