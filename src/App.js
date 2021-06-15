@@ -29,6 +29,11 @@ function App() {
     columns: [],
   });
 
+  useEffect(() => {
+    setShuffleOptions(copyOptions.sort(() => Math.random() - 0.5));
+    setDisable(true);
+  }, [counter]);
+
   const nextQuestion = (questionAudio) => {
     questionAudio.current.load();
     questionAudio.current.play();
@@ -165,11 +170,6 @@ function App() {
     setEndShow(true);
     index < 15 ? setResult(money[index].money) : setResult(0);
   };
-
-  useEffect(() => {
-    setShuffleOptions(copyOptions.sort(() => Math.random() - 0.5));
-    setDisable(true);
-  }, [counter]);
 
   return (
     <div className="App">
