@@ -31,4 +31,24 @@
     @extend .option;
     background-color: $danger;
   }
+
+  @include responsive(tablet) {
+    @include flex(center, center, column);
+    .option {
+      @include widthHeightBorder(80%, 50px, 4px solid $borderColor);
+      margin-top: 1em;
+      font-size: 1.4em;
+    }
+  }
+  @include responsive(mobileL) {
+    .option {
+      @include widthHeightBorder(95%, 50px, 4px solid $borderColor);
+      font-size: 1.2em;
+    }
+  }
+  @include responsive(mobileS) {
+    .option {
+      font-size: 1em;
+    }
+  }
 }

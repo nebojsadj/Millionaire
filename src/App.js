@@ -17,6 +17,7 @@ function App() {
   const [addPoints, setAddPoints] = useState(0);
   const [index, setIndex] = useState(15);
   const [result, setResult] = useState(0);
+  const [displayResult, setDisplayResult] = useState(false);
   const [half, setHalf] = useState(false);
   const [friend, setFriend] = useState({
     clicked: false,
@@ -194,6 +195,7 @@ function App() {
         currentSelected={currentSelected}
         nextQuestion={nextQuestion}
         quit={quit}
+        setDisplayResult={setDisplayResult}
       />
       <QuizScore
         points={addPoints}
@@ -204,6 +206,8 @@ function App() {
         friendHelp={friendHelp}
         audience={audience}
         audienceHelp={audienceHelp}
+        displayResult={displayResult}
+        setDisplayResult={setDisplayResult}
       />
     </div>
   );

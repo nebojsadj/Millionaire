@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import "./Quiz.scss";
 import poster from "../../images/poster.jpg";
+import logo from "../../images/logo.png";
 import correctSound from "../../audioFiles/win.mp3";
 import incorrectSound from "../../audioFiles/lose.mp3";
 import questionSound from "../../audioFiles/question.mp3";
@@ -15,6 +16,7 @@ function Quiz({
   currentSelected,
   handleSelect,
   quit,
+  setDisplayResult,
 }) {
   const markers = ["A", "B", "C", "D"];
   const correctAudio = useRef();
@@ -25,7 +27,8 @@ function Quiz({
     <>
       <div id="main">
         <h1>Millionaire quiz</h1>
-        <img src={poster} alt={poster} />
+        <img id="poster" src={poster} alt={poster} />
+        <img id="logo" src={logo} alt={logo} />
         <div id="questions">
           <h2>{question}</h2>
         </div>
@@ -36,6 +39,12 @@ function Quiz({
             disabled={disable}
           >
             Next question
+          </button>
+          <button
+            className="btn showResult"
+            onClick={() => setDisplayResult(true)}
+          >
+            Show result
           </button>
           <button className="btn-giveUp" onClick={() => quit(quitAudio)}>
             Quit

@@ -10,13 +10,21 @@ import halfSound from "../../audioFiles/finalAnswer.mp3";
 import friendSound from "../../audioFiles/finalAnswer.mp3";
 import audienceSound from "../../audioFiles/finalAnswer.mp3";
 
-function Help({ halfHelp, half, friend, friendHelp, audience, audienceHelp }) {
+function Help({
+  halfHelp,
+  half,
+  friend,
+  friendHelp,
+  audience,
+  audienceHelp,
+  setDisplayResult,
+}) {
   const halfAudio = useRef();
   const friendAudio = useRef();
   const audienceAudio = useRef();
   return (
     <>
-      <div className="helpHolder">
+      <div className="helpHolder" onClick={() => setDisplayResult(false)}>
         <button onClick={() => halfHelp(halfAudio)} disabled={half}>
           <img src={(half && halfImg2) || halfImg1} alt={halfImg1} />
         </button>

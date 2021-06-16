@@ -8,24 +8,73 @@
   border: 2px solid $borderColor;
   @include flex(space-around, center, column);
 
-  img {
+  #poster {
     width: 40%;
+  }
+  #logo {
+    display: none;
+  }
+  #questions {
+    @include widthHeightBorder(80%, 90px, 4px solid $borderColor);
+    background-color: $fieldsColor;
+    border-radius: 3em;
+    display: flex;
+
+    h2 {
+      text-align: center;
+      margin: auto;
+    }
   }
 
   #btnHolder {
     width: 80%;
     @include flex(space-between, none, row);
   }
-}
+  .showResult {
+    display: none;
+  }
 
-#questions {
-  @include widthHeightBorder(80%, 90px, 4px solid $borderColor);
-  background-color: $fieldsColor;
-  border-radius: 3em;
-  display: flex;
+  @include responsive(tablet) {
+    flex: 100%;
+    #questions {
+      @include widthHeightBorder(80%, 70px, 4px solid $borderColor);
+      font-size: 0.8em;
+    }
+    .showResult {
+      display: block;
+    }
+  }
 
-  h2 {
-    text-align: center;
-    margin: auto;
+  @include responsive(mobileL) {
+    h1 {
+      display: none;
+    }
+    #poster {
+      display: none;
+    }
+    #logo {
+      display: block;
+      border-radius: 50%;
+      width: 40%;
+    }
+    #btnHolder {
+      font-size: 0.8em;
+    }
+
+    #questions {
+      @include widthHeightBorder(95%, 100px, 4px solid $borderColor);
+      padding: 5px;
+      font-size: 0.8em;
+    }
+  }
+
+  @include responsive(mobileS) {
+    #btnHolder {
+      font-size: 0.7em;
+    }
+    #questions {
+      @include widthHeightBorder(95%, 80px, 4px solid $borderColor);
+      font-size: 0.7em;
+    }
   }
 }

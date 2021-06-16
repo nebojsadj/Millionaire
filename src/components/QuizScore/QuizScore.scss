@@ -1,7 +1,7 @@
 @import "variables";
 @import "mixins";
 
-#quizScore {
+.quizScore {
   flex: 25%;
   border: 2px solid $borderColor;
   @include flex(space-evenly, none, column);
@@ -28,5 +28,37 @@
   .markMoney {
     background-color: $gold;
     color: black;
+  }
+}
+@include responsive(tablet) {
+  .quizScore {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    right: -55%;
+    background-color: $backgroundColor;
+  }
+  .quizScoreShow {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background-color: $backgroundColor;
+    right: 0;
+  }
+}
+@include responsive(mobileL) {
+  .quizScore {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    right: -105%;
+    background-color: $backgroundColor;
+  }
+  .quizScoreShow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: $backgroundColor;
+    right: 0;
   }
 }

@@ -52,6 +52,7 @@
   position: absolute;
   top: 12%;
   left: 20%;
+  z-index: 5;
   @include flex(space-evenly, center, column);
 
   img {
@@ -64,6 +65,15 @@
     background-color: transparent;
     border: 2px solid $borderColor;
     font-size: 1em;
+  }
+  @include responsive(tablet) {
+    width: 50%;
+    left: 25%;
+  }
+  @include responsive(mobileL) {
+    width: 80%;
+    left: 10%;
+    top: 25%;
   }
 }
 
@@ -101,5 +111,15 @@
     @include widthHeightBorder(35px, 10%, none);
     background-color: $backgroundColor;
     margin-top: 177px;
+  }
+
+  @include responsive(tablet) {
+    width: 50%;
+    left: 25%;
+  }
+  @include responsive(mobileL) {
+    width: 80%;
+    left: 10%;
+    top: 10%;
   }
 }

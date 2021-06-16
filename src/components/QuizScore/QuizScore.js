@@ -12,6 +12,8 @@ function QuizScore({
   friendHelp,
   audience,
   audienceHelp,
+  displayResult,
+  setDisplayResult,
 }) {
   const mark = (el) => {
     if (index < 15) {
@@ -26,7 +28,7 @@ function QuizScore({
   };
 
   return (
-    <div id="quizScore">
+    <div className={`quizScore ${displayResult && "quizScoreShow"}`}>
       <Help
         halfHelp={halfHelp}
         half={half}
@@ -34,8 +36,9 @@ function QuizScore({
         friendHelp={friendHelp}
         audience={audience}
         audienceHelp={audienceHelp}
+        setDisplayResult={setDisplayResult}
       />
-      <div className="profit">
+      <div className="profit" onClick={() => setDisplayResult(false)}>
         {money.map((el) => (
           <div
             className={`money ${guaranted(el.id)} ${
