@@ -37,6 +37,7 @@
 
   @include responsive(tablet) {
     flex: 100%;
+    border: 2px solid $backgroundColor;
     #questions {
       @include widthHeightBorder(80%, 70px, 4px solid $borderColor);
       font-size: 0.8em;

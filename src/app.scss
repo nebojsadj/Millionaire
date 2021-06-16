@@ -12,4 +12,8 @@
   display: flex;
   background-color: $backgroundColor;
   color: $textColor;
+
+  @include responsive(tablet) {
+    @include widthHeightBorder(100%, none, 1px solid $backgroundColor);
+  }
 }
