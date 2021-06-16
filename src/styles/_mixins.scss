@@ -12,11 +12,11 @@
 }
 
 @mixin responsive($value) {
-  @if $value == laptopL {
-    @media screen and(max-width: 1440px) {
+  @if $value == laptopM {
+    @media screen and(max-width: 1280px) {
       @content;
     }
-  } @else if $value == laptopM {
+  } @else if $value == laptopS {
     @media screen and(max-width: 1024px) {
       @content;
     }
@@ -26,14 +26,6 @@
     }
   } @else if $value == mobileL {
     @media screen and(max-width: 425px) {
-      @content;
-    }
-  } @else if $value == mobileM {
-    @media screen and(max-width: 375px) {
-      @content;
-    }
-  } @else if $value == mobileMS {
-    @media screen and(max-width: 360px) {
       @content;
     }
   } @else if $value == mobileS {

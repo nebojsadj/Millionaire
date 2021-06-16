@@ -28,7 +28,7 @@ function QuizScore({
   };
 
   return (
-    <div className={`quizScore ${displayResult && "quizScoreShow"}`}>
+    <div className={displayResult ? "scoreShow" : "quizScore"}>
       <Help
         halfHelp={halfHelp}
         half={half}
