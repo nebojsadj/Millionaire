@@ -44,7 +44,7 @@ function Quiz({
             className="btn showResult"
             onClick={() => setDisplayResult(true)}
           >
-            Result / Help
+            Score/Help
           </button>
           <button className="btn-giveUp" onClick={() => quit(quitAudio)}>
             Quit
