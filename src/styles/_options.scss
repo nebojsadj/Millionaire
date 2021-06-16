@@ -41,6 +41,7 @@
     }
   }
   @include responsive(mobileL) {
+    margin-bottom: 0;
     .option {
       @include widthHeightBorder(95%, 50px, 4px solid $borderColor);
       font-size: 1.2em;
