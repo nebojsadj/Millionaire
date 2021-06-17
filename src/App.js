@@ -44,12 +44,20 @@ function App() {
 
   const handleSelect = (option, correctAudio, incorrectAudio) => {
     setSelected(option);
+
     if (option === correct) {
       setDisable(false);
       setAddPoints(addPoints + points);
       setIndex(index - 1);
       correctAudio.current.load();
       correctAudio.current.play();
+      if (counter === 14) {
+        setDisable(true);
+        setTimeout(() => {
+          setEndShow(true);
+        }, 2000);
+        setResult(3000000);
+      }
     } else {
       setDisable(true);
       setTimeout(() => {

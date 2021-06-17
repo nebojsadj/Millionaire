@@ -27,6 +27,7 @@ function StartEnd({
         <button onClick={startQuiz}>Start Quiz</button>
       </div>
       <div className={endShow ? "show" : "endQuiz"}>
+        {result === 3000000 && <h1>Congratulations to you!</h1>}
         <h1>Your gain is:</h1>
         <h1>{`${result} $`}</h1>
         <h1>{`${addPoints} points`}</h1>
