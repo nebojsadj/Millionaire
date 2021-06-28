@@ -81,22 +81,14 @@ function App() {
   const halfHelp = (audio) => {
     audio.current.play();
     setHalf(true);
-    if (shuffleOptions[0] !== correct && shuffleOptions[1] !== correct) {
-      shuffleOptions.splice(0, 2, "", "");
-    } else if (shuffleOptions[0] !== correct && shuffleOptions[2] !== correct) {
-      shuffleOptions.splice(0, 1, "");
-      shuffleOptions.splice(2, 1, "");
-    } else if (shuffleOptions[0] !== correct && shuffleOptions[3] !== correct) {
-      shuffleOptions.splice(0, 1, "");
-      shuffleOptions.splice(3, 1, "");
-    } else if (shuffleOptions[1] !== correct && shuffleOptions[2] !== correct) {
-      shuffleOptions.splice(1, 2, "", "");
-    } else if (shuffleOptions[1] !== correct && shuffleOptions[3] !== correct) {
-      shuffleOptions.splice(1, 1, "");
-      shuffleOptions.splice(3, 1, "");
-    } else if (shuffleOptions[2] !== correct && shuffleOptions[3] !== correct) {
-      shuffleOptions.splice(2, 2, "", "");
+    let filteredIndex = [];
+    for (const element of shuffleOptions) {
+      if (element !== correct) {
+        filteredIndex.push(shuffleOptions.indexOf(element));
+      }
     }
+    shuffleOptions.splice(filteredIndex[0], 1, "");
+    shuffleOptions.splice(filteredIndex[1], 1, "");
 
     return setShuffleOptions([...shuffleOptions]);
   };
