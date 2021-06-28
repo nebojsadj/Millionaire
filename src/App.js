@@ -4,6 +4,11 @@ import QuizScore from "./components/QuizScore/QuizScore";
 import { questions } from "./components/Data/Questions";
 import { money } from "./components/Data/Money";
 import StartEnd from "./components/Start-End/StartEnd";
+import {
+  otherColumns,
+  correctColumn,
+  friendAnswers,
+} from "./components/Data/HelpData";
 
 function App() {
   const [counter, setCounter] = useState(0);
@@ -95,35 +100,20 @@ function App() {
 
   const friendHelp = (afriendAudio) => {
     afriendAudio.current.play();
-    let friendAnswers = [
-      "Nisam sigurna",
-      "Nisam sigurna",
-      "Nisam siguran",
-      'Mislim da je "A"',
-      'Mislim da je "B"',
-      'Mislim da je "C"',
-      'Mislim da je "D"',
-    ];
-    let r = Math.floor(Math.random() * friendAnswers.length);
+    let random = Math.floor(Math.random() * friendAnswers.length);
 
     setFriend({
       ...friend,
       clicked: true,
       display: true,
-      answer: friendAnswers[r],
+      answer: friendAnswers[random],
     });
   };
 
   const audienceHelp = (audienceAudio) => {
     audienceAudio.current.play();
-    const otherColumns = [
-      <div className="column1"></div>,
-      <div className="column2"></div>,
-      <div className="column3"></div>,
-    ];
-
-    const randomColumns = otherColumns.sort(() => Math.random() - 0.5);
-    const correctColumn = <div className="column"></div>;
+    const columns = [...otherColumns];
+    const randomColumns = columns.sort(() => Math.random() - 0.5);
 
     for (let i = 0; i < 4; i++) {
       if (shuffleOptions[i] === correct) {
